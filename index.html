@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Tušl, PhD — Occupational Health Psychologist</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555;
+      --color-text-tertiary: #999;
+      --color-background-primary: #fff;
+      --color-background-secondary: #f7f7f7;
+      --color-border-tertiary: #e8e8e8;
+      --color-border-secondary: #ddd;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --border-radius-md: 6px;
+      --border-radius-lg: 10px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 3rem;
+    }
+
+    .nav-name { font-size: 15px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.01em; }
+
+    .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-links a.active { color: var(--color-text-primary); }
+
+    section { display: none; }
+    section.visible { display: block; }
+
+    .hero { margin-bottom: 3rem; }
+    .hero h1 { font-size: 28px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+    .hero .role { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+    .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); max-width: 580px; }
+    .hero p + p { margin-top: 1rem; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+    .pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 0.5px solid var(--color-border-secondary);
+      color: var(--color-text-secondary);
+      background: var(--color-background-secondary);
+    }
+
+    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+    .audience-card {
+      padding: 1rem 1.1rem;
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      background: var(--color-background-secondary);
+    }
+    .audience-card h3 { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+    .audience-card p { font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; }
+
+    .timeline-item { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; padding: 1rem 0; border-top: 0.5px solid var(--color-border-tertiary); }
+    .timeline-item:last-child { border-bottom: 0.5px solid var(--color-border-tertiary); }
+    .timeline-year { font-size: 13px; color: var(--color-text-tertiary); padding-top: 1px; }
+    .timeline-content h3 { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+    .timeline-content p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+
+    .pub-item { padding: 1rem 0; border-top: 0.5px solid var(--color-border-tertiary); }
+    .pub-item:last-child { border-bottom: 0.5px solid var(--color-border-tertiary); }
+    .pub-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); line-height: 1.5; margin-bottom: 4px; }
+    .pub-meta { font-size: 12px; color: var(--color-text-tertiary); line-height: 1.5; }
+    .pub-journal { font-style: italic; }
+    .pub-year-badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: var(--color-background-secondary);
+      color: var(--color-text-tertiary);
+      margin-right: 6px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+    .lang-card {
+      padding: 0.75rem 1rem;
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      background: var(--color-background-secondary);
+    }
+    .lang-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+    .lang-level { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+    .contact-block {
+      padding: 1.5rem;
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      background: var(--color-background-secondary);
+      max-width: 420px;
+    }
+    .contact-block p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.8; }
+    .contact-email { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-top: 0.75rem; display: block; }
+
+    .filter-row { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 0.5px solid var(--color-border-secondary);
+      color: var(--color-text-secondary);
+      background: transparent;
+      cursor: pointer;
+    }
+    .filter-btn.active { background: var(--color-text-primary); color: #fff; border-color: var(--color-text-primary); }
+    .hidden { display: none !important; }
+    .affil-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 1rem; margin-bottom: 2rem; }
+
+    @media (max-width: 560px) {
+      .nav-name { font-size: 14px; }
+      .nav-links { gap: 1rem; }
+      .hero h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+  <nav>
+    <span class="nav-name">Martin Tušl, PhD</span>
+    <div class="nav-links">
+      <a class="active" onclick="show('about', this)">About</a>
+      <a onclick="show('work', this)">Work with me</a>
+      <a onclick="show('publications', this)">Research</a>
+      <a onclick="show('cv', this)">Background</a>
+      <a onclick="show('contact', this)">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about" class="visible">
+    <div class="hero">
+      <h1>Martin Tušl, PhD</h1>
+      <p class="role">Occupational Health Psychologist</p>
+      <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on decades of scientific research in occupational health psychology.</p>
+      <p>My approach is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
+    </div>
+
+    <div class="section-label">Who I work with</div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3>Individuals</h3>
+        <p>People navigating burnout, career transitions, work-life balance, or a search for more meaning in their work.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Organizations &amp; teams</h3>
+        <p>Companies looking to build healthier, more engaged workplaces through evidence-based approaches to job design and well-being.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Topics I work with</div>
+    <div class="topic-pills">
+      <span class="pill">Burnout &amp; stress</span>
+      <span class="pill">Job crafting</span>
+      <span class="pill">Meaning at work</span>
+      <span class="pill">Work-life balance</span>
+      <span class="pill">Occupational well-being</span>
+      <span class="pill">Career development</span>
+      <span class="pill">Organizational health</span>
+      <span class="pill">Job design</span>
+      <span class="pill">Psychological needs at work</span>
+      <span class="pill">Sense of coherence</span>
+    </div>
+  </section>
+
+  <!-- WORK WITH ME -->
+  <section id="work">
+    <div class="hero">
+      <h1>Work with me</h1>
+      <p class="role">Evidence-based support for individuals and organizations</p>
+      <p>Whether you are an individual looking for support in your professional life, or an organization seeking to improve well-being at work, I offer a thoughtful, science-informed approach tailored to your needs.</p>
+    </div>
+
+    <div class="section-label">For individuals</div>
+    <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:1.5rem;">I work with individuals on questions of meaning, balance, and well-being at work. Sessions draw on frameworks from occupational health psychology, including job crafting, psychological needs theory, and salutogenesis, to help you understand your situation and find practical ways forward.</p>
+
+    <div class="section-label">For organizations</div>
+    <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:1.5rem;">I collaborate with teams and companies on workplace well-being, job design, and organizational health. This can take the form of workshops, assessments, or longer-term consulting projects, always grounded in current research and adapted to your organizational context.</p>
+
+    <div class="section-label">Languages</div>
+    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">I work with clients in Czech, English, French, Italian, and German.</p>
+    <div class="lang-grid">
+      <div class="lang-card"><div class="lang-name">Czech</div><div class="lang-level">Native</div></div>
+      <div class="lang-card"><div class="lang-name">English</div><div class="lang-level">C1–C2</div></div>
+      <div class="lang-card"><div class="lang-name">French</div><div class="lang-level">C1–C2</div></div>
+      <div class="lang-card"><div class="lang-name">Italian</div><div class="lang-level">C1–C2</div></div>
+      <div class="lang-card"><div class="lang-name">German</div><div class="lang-level">B2</div></div>
+    </div>
+
+    <div style="margin-top:2rem;font-size:13px;color:var(--color-text-secondary);">Interested in working together? <a onclick="show('contact', document.querySelector('.nav-links a:last-child'))" style="color:var(--color-text-primary);cursor:pointer;text-decoration:underline;">Get in touch</a> and we can talk about what might be useful for you.</div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="publications">
+    <div class="hero">
+      <h1>Research</h1>
+      <p class="role" style="margin-bottom:0;">My consulting work is grounded in empirical research in occupational health psychology.</p>
+    </div>
+    <p class="affil-note">Postdoctoral researcher, University of Zurich</p>
+
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterPubs('first', this)">First author</button>
+      <button class="filter-btn" onclick="filterPubs('co', this)">Co-authored</button>
+    </div>
+
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Worker's proactive pursuit of meaning: the role of needs-based crafting</div>
+      <div class="pub-meta"><span class="pub-year-badge">in press</span>In <span class="pub-journal">Work meaning and motivation: Interdisciplinary perspectives on work well-being</span> · Springer</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Exploring needs-based crafting in daily life: a registered report of a mixed-methods daily diary study</div>
+      <div class="pub-meta"><span class="pub-year-badge">2025</span><span class="pub-journal">Health Psychology and Behavioral Medicine, 13</span>(1)</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Longitudinal changes in occupational well-being: a four-wave panel survey of employees in Switzerland and Germany</div>
+      <div class="pub-meta"><span class="pub-year-badge">2025</span><span class="pub-journal">BMC Public Health, 25</span>(1)</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Needs-based job crafting: validation of a new scale based on psychological needs</div>
+      <div class="pub-meta"><span class="pub-year-badge">2024</span><span class="pub-journal">Journal of Occupational Health Psychology, 29</span>(2), 57–71</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">The sense of coherence scale: psychometric properties in a representative Czech adult population sample</div>
+      <div class="pub-meta"><span class="pub-year-badge">2024</span><span class="pub-journal">BMC Psychology, 12</span>(1)</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Sense of coherence, off-job crafting, and mental well-being: a path of positive health development</div>
+      <div class="pub-meta"><span class="pub-year-badge">2022</span><span class="pub-journal">Health Promotion International, 37</span>(6)</div>
+    </div>
+    <div class="pub-item" data-type="first">
+      <div class="pub-title">Impact of the COVID-19 crisis on work and private life, mental well-being and self-rated health in German and Swiss employees</div>
+      <div class="pub-meta"><span class="pub-year-badge">2021</span><span class="pub-journal">BMC Public Health, 21</span>(1)</div>
+    </div>
+    <div class="pub-item" data-type="co">
+      <div class="pub-title">Crafting for health: a longitudinal study of job and off-job crafting changes during the COVID-19 pandemic</div>
+      <div class="pub-meta"><span class="pub-year-badge">2025</span>Morstatt et al. · <span class="pub-journal">Occupational Health Science, 9</span>(3)</div>
+    </div>
+    <div class="pub-item" data-type="co">
+      <div class="pub-title">Adapting mental health needs analysis activities to online and hybrid methods: lessons learned during Covid-19</div>
+      <div class="pub-meta"><span class="pub-year-badge">2025</span>Axtell et al. · <span class="pub-journal">Information &amp; Management, 62</span>(4)</div>
+    </div>
+    <div class="pub-item" data-type="co">
+      <div class="pub-title">Order out of chaos: sense of coherence and the mediating role of coping resources in explaining mental health during COVID-19 in 7 countries</div>
+      <div class="pub-meta"><span class="pub-year-badge">2021</span>Mana et al. · <span class="pub-journal">SSM – Mental Health, 1</span></div>
+    </div>
+    <div class="pub-item" data-type="co">
+      <div class="pub-title">The role of off-job crafting in burnout prevention during COVID-19 crisis: a longitudinal study</div>
+      <div class="pub-meta"><span class="pub-year-badge">2022</span>Pijpker et al. · <span class="pub-journal">International Journal of Environmental Research and Public Health, 19</span>(4)</div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND / CV -->
+  <section id="cv">
+    <div class="section-label">Education</div>
+    <div class="timeline-item">
+      <span class="timeline-year">2023</span>
+      <div class="timeline-content"><h3>PhD in Occupational Health Psychology</h3><p>University of Zurich, Switzerland</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2017</span>
+      <div class="timeline-content"><h3>Master of Clinical and Health Psychology</h3><p>Charles University, Prague</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2014</span>
+      <div class="timeline-content"><h3>Bachelor of General Psychology</h3><p>Charles University, Prague</p></div>
+    </div>
+
+    <div class="section-label">Positions</div>
+    <div class="timeline-item">
+      <span class="timeline-year">2023–</span>
+      <div class="timeline-content"><h3>Postdoctoral researcher in OHP</h3><p>University of Zurich, Switzerland</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2018–2019</span>
+      <div class="timeline-content"><h3>Research assistant</h3><p>University of Bologna, Italy</p></div>
+    </div>
+
+    <div class="section-label">Academic mobility</div>
+    <div class="timeline-item">
+      <span class="timeline-year">2026</span>
+      <div class="timeline-content"><h3>Curtin University, Perth</h3><p>Future of Work Institute · Prof. Sharon Parker</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2024</span>
+      <div class="timeline-content"><h3>University of Neuchâtel</h3><p>Prof. Laurenz Meier</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2023</span>
+      <div class="timeline-content"><h3>NTNU, Trondheim</h3><p>Prof. Marit Christensen</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2021</span>
+      <div class="timeline-content"><h3>University of Groningen</h3><p>Prof. Jessica de Bloom</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="hero">
+      <h1>Contact</h1>
+      <p class="role" style="margin-bottom:0;">I'd love to hear from you.</p>
+    </div>
+    <div class="contact-block" style="margin-top:2rem;">
+      <p>Whether you're an individual curious about working together, or an organization looking for support, feel free to reach out. I'm happy to have an initial conversation to explore whether we're a good fit.</p>
+      <span class="contact-email">martin.tusl@uzh.ch</span>
+    </div>
+    <div style="margin-top:1.5rem;font-size:13px;color:var(--color-text-tertiary);">University of Zurich · Zurich, Switzerland</div>
+  </section>
+</div>
+
+<script>
+  function show(id, el) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    if (el) el.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function filterPubs(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (type === 'all' || item.dataset.type === type) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+</script>
+</body>
+</html>
