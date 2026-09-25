@@ -64,7 +64,7 @@
       .hero-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .portrait { width: 104px; height: 104px; }
     }
-    .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); max-width: 580px; }
+    .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); text-wrap: pretty; }
     .hero p + p { margin-top: 1rem; }
 
     .section-label {
@@ -87,15 +87,13 @@
       background: var(--color-background-secondary);
     }
 
-    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-bottom: 1rem; }
-    .audience-card {
-      padding: 1rem 1.1rem;
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      background: var(--color-background-secondary);
-    }
-    .audience-card h3 { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
-    .audience-card p { font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; }
+    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 1rem; }
+    .audience-card { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); display: flex; flex-direction: column; }
+    .audience-card h3 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+    .audience-card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; flex-grow: 1; }
+    .audience-link { display: inline-block; margin-top: 1rem; font-size: 13px; color: var(--color-text-primary); text-decoration: none; cursor: pointer; }
+    .audience-link span { display: inline-block; transition: transform 0.15s; }
+    .audience-link:hover span { transform: translateX(3px); }
 
     .timeline-item { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; padding: 1rem 0; border-top: 0.5px solid var(--color-border-tertiary); }
     .timeline-item:last-child { border-bottom: 0.5px solid var(--color-border-tertiary); }
@@ -172,7 +170,7 @@
           <p class="role">Psychologist, Coach, Researcher</p>
         </div>
       </div>
-      <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on decades of scientific research in occupational health psychology.</p>
+      <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on research in work and organizational psychology, including my own.</p>
       <p>My approach is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
     </div>
 
@@ -181,10 +179,12 @@
       <div class="audience-card">
         <h3>Individuals</h3>
         <p>People navigating burnout, career transitions, work-life balance, or a search for more meaning in their work.</p>
+        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(2)'))">How I can help <span>&rarr;</span></a>
       </div>
       <div class="audience-card">
         <h3>Organizations &amp; teams</h3>
         <p>Companies looking to build healthier, more engaged workplaces through evidence-based approaches to job design and well-being.</p>
+        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(2)'))">How I can help <span>&rarr;</span></a>
       </div>
     </div>
 
