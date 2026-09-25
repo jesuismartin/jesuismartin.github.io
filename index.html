@@ -118,15 +118,14 @@
     .site-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 0.5px solid var(--color-border-tertiary); }
     .site-footer .profile-links { margin-top: 0; }
 
-    .lang-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
-    .lang-card {
-      padding: 0.75rem 1rem;
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-md);
-      background: var(--color-background-secondary);
-    }
-    .lang-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
-    .lang-level { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+    .work-text { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+    .price-list { border-top: 1px solid var(--color-text-primary); }
+    .price-row { display: grid; grid-template-columns: 1fr auto 5.5rem; gap: 1rem; align-items: baseline; padding: 0.8rem 0; border-bottom: 0.5px solid var(--color-border-secondary); font-size: 14px; }
+    .price-name { color: var(--color-text-primary); }
+    .price-time { color: var(--color-text-tertiary); font-size: 13px; }
+    .price-cost { color: var(--color-text-primary); font-weight: 500; text-align: right; }
+    .price-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 0.75rem; margin-bottom: 1rem; }
 
     .contact-block {
       padding: 1.5rem;
@@ -210,24 +209,20 @@
     <div class="hero">
       <h1>Work with me</h1>
       <p class="role">Evidence-based support for individuals and organizations</p>
-      <p>Whether you are an individual looking for support in your professional life, or an organization seeking to improve well-being at work, I offer a thoughtful, science-informed approach tailored to your needs.</p>
+      <p>Whether you are an individual looking for support in your professional life, or an organization seeking to improve well-being at work, I offer a thoughtful, science-informed approach tailored to your needs. I work in English, German, French, Italian, and Czech.</p>
     </div>
 
     <div class="section-label">For individuals</div>
-    <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:1.5rem;">I work with individuals on questions of meaning, balance, and well-being at work. Sessions draw on frameworks from occupational health psychology, including job crafting, psychological needs theory, and salutogenesis, to help you understand your situation and find practical ways forward.</p>
+    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you.</p>
+    <div class="price-list">
+      <div class="price-row"><span class="price-name">Introductory consultation</span><span class="price-time">15 min</span><span class="price-cost">Free</span></div>
+      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">30 min</span><span class="price-cost">CHF 70</span></div>
+      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 100</span></div>
+    </div>
+
 
     <div class="section-label">For organizations</div>
-    <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:1.5rem;">I collaborate with teams and companies on workplace well-being, job design, and organizational health. This can take the form of workshops, assessments, or longer-term consulting projects, always grounded in current research and adapted to your organizational context.</p>
-
-    <div class="section-label">Languages</div>
-    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;">I work with clients in Czech, English, French, Italian, and German.</p>
-    <div class="lang-grid">
-      <div class="lang-card"><div class="lang-name">Czech</div><div class="lang-level">Native</div></div>
-      <div class="lang-card"><div class="lang-name">English</div><div class="lang-level">C1–C2</div></div>
-      <div class="lang-card"><div class="lang-name">French</div><div class="lang-level">C1–C2</div></div>
-      <div class="lang-card"><div class="lang-name">Italian</div><div class="lang-level">C1–C2</div></div>
-      <div class="lang-card"><div class="lang-name">German</div><div class="lang-level">B2</div></div>
-    </div>
+    <p class="work-text">I support teams and organizations in promoting healthy workplaces using evidence-based methods for job design and employee well-being. Healthy and motivated employees are the foundation of a productive and sustainable organization. I offer psychological assessments and tailored needs analyses based on a participatory approach, to understand what energizes your employees and what strains them. I also offer workshops, talks, and longer-term consulting, always adapted to your organization.</p>
 
     <div style="margin-top:2rem;font-size:13px;color:var(--color-text-secondary);">Interested in working together? <a onclick="show('contact', document.querySelector('.nav-links a:last-child'))" style="color:var(--color-text-primary);cursor:pointer;text-decoration:underline;">Get in touch</a> and we can talk about what might be useful for you.</div>
   </section>
