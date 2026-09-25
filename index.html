@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Martin Tušl, PhD — Occupational Health Psychologist</title>
+  <title>Martin Tušl, PhD — Psychologist, Coach, Researcher</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,6 +57,13 @@
     .hero { margin-bottom: 3rem; }
     .hero h1 { font-size: 28px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
     .hero .role { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+    .hero-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .hero-head .role { margin-bottom: 0; }
+    .portrait { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center 30%; flex-shrink: 0; border: 0.5px solid var(--color-border-tertiary); }
+    @media (max-width: 520px) {
+      .hero-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .portrait { width: 104px; height: 104px; }
+    }
     .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); max-width: 580px; }
     .hero p + p { margin-top: 1rem; }
 
@@ -158,8 +165,13 @@
   <!-- ABOUT -->
   <section id="about" class="visible">
     <div class="hero">
-      <h1>Martin Tušl, PhD</h1>
-      <p class="role">Occupational Health Psychologist</p>
+      <div class="hero-head">
+        <img class="portrait" src="portrait.jpg" alt="Portrait of Martin Tušl" width="120" height="120">
+        <div>
+          <h1>Martin Tušl, PhD</h1>
+          <p class="role">Psychologist, Coach, Researcher</p>
+        </div>
+      </div>
       <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on decades of scientific research in occupational health psychology.</p>
       <p>My approach is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
     </div>
