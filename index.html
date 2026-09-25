@@ -50,6 +50,10 @@
     }
     .nav-links a:hover { color: var(--color-text-primary); }
     .nav-links a.active { color: var(--color-text-primary); }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; align-items: flex-start; gap: 0.9rem; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+      .nav-links { gap: 0.5rem 1.1rem; }
+    }
 
     section { display: none; }
     section.visible { display: block; }
@@ -66,6 +70,8 @@
     }
     .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); }
     .hero p + p { margin-top: 1rem; }
+    .inline-link { color: var(--color-text-primary); text-decoration: underline; text-decoration-color: var(--color-border-secondary); text-underline-offset: 3px; cursor: pointer; }
+    .inline-link:hover { text-decoration-color: var(--color-text-primary); }
 
     .section-label {
       font-size: 11px;
@@ -88,6 +94,10 @@
     }
 
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 1rem; }
+    .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem; }
+    .theme { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); }
+    .theme h3 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+    .theme p { font-size: 14px; line-height: 1.7; color: var(--color-text-secondary); }
     .audience-card { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); display: flex; flex-direction: column; }
     .audience-card h3 { font-size: 17px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.01em; margin-bottom: 0.6rem; }
     .audience-card p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; flex-grow: 1; }
@@ -120,23 +130,15 @@
 
 
     .work-text { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
-    .price-list { border-top: 1px solid var(--color-text-primary); }
+    .price-list { border-top: 0.5px solid var(--color-border-secondary); }
     .price-row { display: grid; grid-template-columns: 1fr auto 5.5rem; gap: 1rem; align-items: baseline; padding: 0.8rem 0; border-bottom: 0.5px solid var(--color-border-secondary); font-size: 14px; }
     .price-name { color: var(--color-text-primary); }
     .price-time { color: var(--color-text-tertiary); font-size: 13px; }
     .price-cost { color: var(--color-text-primary); font-weight: 500; text-align: right; }
     .price-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 0.75rem; margin-bottom: 1rem; }
 
-    .contact-block {
-      padding: 1.5rem;
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      background: var(--color-background-secondary);
-      max-width: 420px;
-    }
-    .contact-block p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.8; }
-    .contact-email { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-top: 0.75rem; display: block; text-decoration: none; }
-    .contact-email:hover { text-decoration: underline; }
+    .contact-links { display: flex; gap: 1.75rem; font-size: 16px; }
+    .contact-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 1rem; }
 
 
     @media (max-width: 560px) {
@@ -151,10 +153,10 @@
   <nav>
     <span class="nav-name">Martin Tušl, PhD</span>
     <div class="nav-links">
-      <a class="active" onclick="show('about', this)">About</a>
+      <a class="active" onclick="show('about', this)">About me</a>
+      <a onclick="show('publications', this)">My approach</a>
+      <a onclick="show('cv', this)">My background</a>
       <a onclick="show('work', this)">Work with me</a>
-      <a onclick="show('publications', this)">Research</a>
-      <a onclick="show('cv', this)">Background</a>
       <a onclick="show('contact', this)">Contact</a>
     </div>
   </nav>
@@ -170,7 +172,7 @@
         </div>
       </div>
       <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on research in work and organizational psychology, including my own.</p>
-      <p>My approach is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
+      <p><a class="inline-link" onclick="show('publications', document.querySelector('.nav-links a:nth-child(2)'))">My approach</a> is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
     </div>
 
     <div class="section-label">Who I work with</div>
@@ -178,12 +180,12 @@
       <div class="audience-card">
         <h3>Individuals</h3>
         <p>People seeking more motivation, fulfillment, and balance in their work, or navigating transitions, stress, and difficult work and life situations.</p>
-        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(2)'))">How I can help <span>&rarr;</span></a>
+        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(4)'))">How I can help <span>&rarr;</span></a>
       </div>
       <div class="audience-card">
         <h3>Organizations &amp; teams</h3>
         <p>Companies looking to build healthier, more engaged workplaces through evidence-based approaches to job design and well-being.</p>
-        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(2)'))">How I can help <span>&rarr;</span></a>
+        <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(4)'))">How I can help <span>&rarr;</span></a>
       </div>
     </div>
 
@@ -209,31 +211,63 @@
     <div class="hero">
       <h1>Work with me</h1>
       <p class="role">Evidence-based support for individuals and organizations</p>
-      <p>Whether you are an individual looking for support in your professional life, or an organization seeking to improve well-being at work, I offer a thoughtful, science-informed approach tailored to your needs. I work in English, German, French, Italian, and Czech.</p>
+      <p>Whether you are an individual looking for support in your professional life, or an organization seeking to improve well-being at work, I offer a thoughtful, evidence-based approach tailored to your needs. I work in English, German, French, Italian, and Czech.</p>
     </div>
 
     <div class="section-label">For individuals</div>
-    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you.</p>
+    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you. I work in a short-term, solution-focused way. The initial 15-minute consultation is free, so we can get to know each other and see whether working together is a good fit.</p>
     <div class="price-list">
       <div class="price-row"><span class="price-name">Introductory consultation</span><span class="price-time">15 min</span><span class="price-cost">Free</span></div>
-      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">30 min</span><span class="price-cost">CHF 70</span></div>
       <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 100</span></div>
     </div>
 
 
     <div class="section-label">For organizations</div>
     <p class="work-text">I support teams and organizations in promoting healthy workplaces using evidence-based methods for job design and employee well-being. Healthy and motivated employees are the foundation of a productive and sustainable organization. I offer psychological assessments and tailored needs analyses based on a participatory approach, to understand what energizes your employees and what strains them. I also offer workshops, talks, and longer-term consulting, always adapted to your organization.</p>
+    <p class="work-text" style="margin-top:2rem;">Interested in working together? <a class="inline-link" onclick="show('contact', document.querySelector('.nav-links a:last-child'))">Get in touch</a> and we can talk about how I may support you.</p>
 
-    <div style="margin-top:2rem;font-size:13px;color:var(--color-text-secondary);">Interested in working together? <a onclick="show('contact', document.querySelector('.nav-links a:last-child'))" style="color:var(--color-text-primary);cursor:pointer;text-decoration:underline;">Get in touch</a> and we can talk about what might be useful for you.</div>
   </section>
 
   <!-- RESEARCH -->
   <section id="publications">
     <div class="hero">
-      <h1>Research</h1>
-      <p class="role" style="margin-bottom:0;">As a researcher, I study what makes work healthy and fulfilling, and the approaches I use with clients are grounded in that evidence. Below you can find some of my research.</p>
+      <h1>My approach</h1>
+      <p>As a researcher, I study what makes work healthy and fulfilling, and the approaches I use with clients are grounded in that evidence. Below you can find the key concepts I work with and the research behind them.</p>
     </div>
 
+    <div class="section-label">Key concepts</div>
+    <div class="theme-grid">
+      <div class="theme">
+        <h3>Salutogenesis</h3>
+        <p>Salutogenesis looks at the sources of health rather than the causes of illness. It focuses on people’s resources and strengths, on what helps them stay resilient under pressure, and on the positive aspects of work and life that keep them well. This perspective is the general orientation of my work.</p>
+      </div>
+      <div class="theme">
+        <h3>Needs-based crafting</h3>
+        <p>We are not only shaped by our work, we also actively shape it. Needs-based crafting describes how people adjust their work and free time to better meet their psychological needs for Detachment, Relaxation, Autonomy, Mastery, Meaning, and Relatedness (DRAMMA). This is one of the core topics of my research.</p>
+      </div>
+      <div class="theme">
+        <h3>SMART work design</h3>
+        <p>Good work is Stimulating, builds Mastery, gives Agency, is Relational, and keeps demands Tolerable. The SMART model summarizes decades of research on job design and what makes work healthy and motivating. I apply it to support organizations in promoting their employees’ well-being and performance.</p>
+      </div>
+    </div>
+    <div class="section-label" style="margin-top:3rem;">Selected publications</div>
+    <div class="pub-item">
+      <p class="pub-ref">Antonovsky, A. (1996). <a class="pub-title" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">The salutogenic model as a theory to guide health promotion</a>. <i>Health Promotion International, 11</i>(1), 11–18. <a class="pub-doi" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/11.1.11</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">Newman, D. B., Tay, L., &amp; Diener, E. (2014). <a class="pub-title" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">Leisure and subjective well-being: A model of psychological mechanisms as mediating factors</a>. <i>Journal of Happiness Studies, 15</i>(3), 555–578. <a class="pub-doi" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">https://doi.org/10.1007/s10902-013-9435-x</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">de Bloom, J., Vaziri, H., Tay, L., &amp; Kujanpää, M. (2020). <a class="pub-title" href="https://doi.org/10.1037/apl0000495" target="_blank" rel="noopener">An identity-based integrative needs model of crafting: Crafting within and across life domains</a>. <i>Journal of Applied Psychology, 105</i>(12), 1423–1446. <a class="pub-doi" href="https://doi.org/10.1037/apl0000495" target="_blank" rel="noopener">https://doi.org/10.1037/apl0000495</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">Parker, S. K., &amp; Knight, C. (2024). <a class="pub-title" href="https://doi.org/10.1002/hrm.22200" target="_blank" rel="noopener">The SMART model of work design: A higher order structure to help see the wood from the trees</a>. <i>Human Resource Management, 63</i>(2), 265–291. <a class="pub-doi" href="https://doi.org/10.1002/hrm.22200" target="_blank" rel="noopener">https://doi.org/10.1002/hrm.22200</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">Bakker, A. B., &amp; Demerouti, E. (2017). <a class="pub-title" href="https://doi.org/10.1037/ocp0000056" target="_blank" rel="noopener">Job demands–resources theory: Taking stock and looking forward</a>. <i>Journal of Occupational Health Psychology, 22</i>(3), 273–285. <a class="pub-doi" href="https://doi.org/10.1037/ocp0000056" target="_blank" rel="noopener">https://doi.org/10.1037/ocp0000056</a></p>
+    </div>
+
+    <div class="section-label" style="margin-top:3rem;">Own publications</div>
     <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong>, Brauchli, R., Kerksieck, P., &amp; Bauer, G. F. (2021). <a class="pub-title" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">Impact of the COVID-19 crisis on work and private life, mental well-being and self-rated health in German and Swiss employees: A cross-sectional online survey</a>. <i>BMC Public Health, 21</i>(1), 741. <a class="pub-doi" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">https://doi.org/10.1186/s12889-021-10788-8</a></p>
     </div>
@@ -272,6 +306,10 @@
 
   <!-- BACKGROUND / CV -->
   <section id="cv">
+    <div class="hero">
+      <h1>My background</h1>
+      <p>I received my Master’s in Clinical and Health Psychology at Charles University in Prague and completed my PhD in Occupational Health Psychology at the University of Zurich, where I now work as a postdoctoral researcher. Alongside my research, I support individuals and organizations in making work healthier and more fulfilling.</p>
+    </div>
     <div class="section-label">Education</div>
     <div class="timeline-item">
       <span class="timeline-year">2023</span>
@@ -279,39 +317,39 @@
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2017</span>
-      <div class="timeline-content"><h3>Master of Clinical and Health Psychology</h3><p>Charles University, Prague</p></div>
+      <div class="timeline-content"><h3>Master of Clinical and Health Psychology</h3><p>Charles University, Prague, Czech Republic</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2014</span>
-      <div class="timeline-content"><h3>Bachelor of General Psychology</h3><p>Charles University, Prague</p></div>
+      <div class="timeline-content"><h3>Bachelor of General Psychology</h3><p>Charles University, Prague, Czech Republic</p></div>
     </div>
 
-    <div class="section-label">Positions</div>
+    <div class="section-label">Current position</div>
     <div class="timeline-item">
-      <span class="timeline-year">2023–</span>
-      <div class="timeline-content"><h3>Postdoctoral researcher in OHP</h3><p>University of Zurich, Switzerland</p></div>
-    </div>
-    <div class="timeline-item">
-      <span class="timeline-year">2018–2019</span>
-      <div class="timeline-content"><h3>Research assistant</h3><p>University of Bologna, Italy</p></div>
+      <span class="timeline-year">Since 2023</span>
+      <div class="timeline-content"><h3>Postdoctoral researcher in Occupational Health Psychology</h3><p>University of Zurich, Switzerland</p></div>
     </div>
 
-    <div class="section-label">Academic mobility</div>
+    <div class="section-label">Research stays</div>
     <div class="timeline-item">
       <span class="timeline-year">2026</span>
-      <div class="timeline-content"><h3>Curtin University, Perth</h3><p>Future of Work Institute · Prof. Sharon Parker</p></div>
+      <div class="timeline-content"><h3>Curtin University, Perth, Australia</h3><p>Future of Work Institute</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2024</span>
-      <div class="timeline-content"><h3>University of Neuchâtel</h3><p>Prof. Laurenz Meier</p></div>
+      <div class="timeline-content"><h3>University of Neuchâtel, Switzerland</h3><p>Department of Psychology</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2023</span>
-      <div class="timeline-content"><h3>NTNU, Trondheim</h3><p>Prof. Marit Christensen</p></div>
+      <div class="timeline-content"><h3>NTNU, Trondheim, Norway</h3><p>Department of Psychology</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2021</span>
-      <div class="timeline-content"><h3>University of Groningen</h3><p>Prof. Jessica de Bloom</p></div>
+      <div class="timeline-content"><h3>University of Groningen, Netherlands</h3><p>Faculty of Economics and Business</p></div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-year">2018–2019</span>
+      <div class="timeline-content"><h3>University of Bologna, Italy</h3><p>Human Factors, Risk and Safety</p></div>
     </div>
   </section>
 
@@ -319,17 +357,13 @@
   <section id="contact">
     <div class="hero">
       <h1>Contact</h1>
-      <p class="role" style="margin-bottom:0;">I'd love to hear from you.</p>
+      <p>Whether you're an individual curious about working together or an organization looking for support, feel free to reach out. The first 15-minute consultation is free, a chance to get to know each other and see whether we're a good fit.</p>
     </div>
-    <div class="contact-block" style="margin-top:2rem;">
-      <p>Whether you're an individual curious about working together, or an organization looking for support, feel free to reach out. I'm happy to have an initial conversation to explore whether we're a good fit.</p>
-      <a class="contact-email" href="mailto:martin.tusl.jr@gmail.com">martin.tusl.jr@gmail.com</a>
-      <div class="profile-links">
-        <a href="https://www.linkedin.com/in/martintusl/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=Sec-rSMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      </div>
+    <div class="contact-links">
+      <a class="inline-link" href="mailto:martin.tusl.jr@gmail.com">Email</a>
+      <a class="inline-link" href="https://www.linkedin.com/in/martintusl/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div style="margin-top:1.5rem;font-size:13px;color:var(--color-text-tertiary);">University of Zurich · Zurich, Switzerland</div>
+    <p class="contact-note">Based in Zurich, Switzerland · Sessions available online</p>
   </section>
 
   <footer class="site-footer">
@@ -347,6 +381,7 @@
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     document.getElementById(id).classList.add('visible');
     if (el) el.classList.add('active');
+    document.querySelector('.site-footer').style.display = id === 'contact' ? 'none' : '';
     window.scrollTo(0, 0);
   }
 </script>
