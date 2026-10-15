@@ -93,6 +93,8 @@
       background: var(--color-background-secondary);
     }
 
+    .topic-list { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); }
+
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 1rem; }
     .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem; }
     .theme { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); }
@@ -130,8 +132,7 @@
 
 
     .work-text { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
-    .price-list { border-top: 0.5px solid var(--color-border-secondary); }
-    .price-row { display: grid; grid-template-columns: 1fr auto 5.5rem; gap: 1rem; align-items: baseline; padding: 0.8rem 0; border-bottom: 0.5px solid var(--color-border-secondary); font-size: 14px; }
+    .price-row { display: grid; grid-template-columns: 1fr auto 5.5rem; gap: 1rem; align-items: baseline; padding: 0.4rem 0; font-size: 14px; }
     .price-name { color: var(--color-text-primary); }
     .price-time { color: var(--color-text-tertiary); font-size: 13px; }
     .price-cost { color: var(--color-text-primary); font-weight: 500; text-align: right; }
@@ -190,19 +191,16 @@
     </div>
 
     <div class="section-label">Topics I work with</div>
-    <div class="topic-pills">
-      <span class="pill">Motivation and well-being at work</span>
-      <span class="pill">Meaningful work</span>
-      <span class="pill">Job and off-job crafting</span>
-      <span class="pill">Healthy leadership</span>
-      <span class="pill">Job design</span>
-      <span class="pill">Life and career transitions</span>
-      <span class="pill">Stress &amp; burnout</span>
-      <span class="pill">Technology and AI at work</span>
+    <div class="topic-pills topic-list">
+      <span class="pill">Motivation and meaning at work</span>
+      <span class="pill">Shaping your work to fit you</span>
+      <span class="pill">Recovering well from work</span>
+      <span class="pill">Handling stress and pressure</span>
+      <span class="pill">Balancing work and life</span>
+      <span class="pill">Career and life transitions</span>
+      <span class="pill">Healthy work design and leadership</span>
       <span class="pill">Remote and hybrid work</span>
-      <span class="pill">Work-life balance</span>
-      <span class="pill">Recovery from work</span>
-      <span class="pill">Workplace health promotion</span>
+      <span class="pill">Human-centered AI</span>
     </div>
   </section>
 
@@ -215,15 +213,31 @@
     </div>
 
     <div class="section-label">For individuals</div>
-    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you. I work in a short-term, solution-focused way. The initial 15-minute consultation is free, so we can get to know each other and see whether working together is a good fit.</p>
+    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you. I work in a short-term, solution-focused way.</p>
+
+    <div class="theme-grid" style="margin-bottom:2rem;">
+      <div class="theme">
+        <h3>1. Free introductory call</h3>
+        <p>We meet online for 30 minutes to get to know each other, talk about what brings you, and see whether working together is a good fit.</p>
+      </div>
+      <div class="theme">
+        <h3>2. Setting your goals</h3>
+        <p>In our first session, we clarify what you would like to work on together and agree on a plan that suits you.</p>
+      </div>
+      <div class="theme">
+        <h3>3. Working together</h3>
+        <p>In regular online sessions, we work on practical steps you can try out in your everyday work and life.</p>
+      </div>
+    </div>
+
     <div class="price-list">
-      <div class="price-row"><span class="price-name">Introductory consultation</span><span class="price-time">15 min</span><span class="price-cost">Free</span></div>
-      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 100</span></div>
+      <div class="price-row"><span class="price-name">Introductory call</span><span class="price-time">30 min</span><span class="price-cost">Free</span></div>
+      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 120</span></div>
     </div>
 
 
-    <div class="section-label">For organizations</div>
-    <p class="work-text">I support teams and organizations in promoting healthy workplaces using evidence-based methods for job design and employee well-being. Healthy and motivated employees are the foundation of a productive and sustainable organization. I offer psychological assessments and tailored needs analyses based on a participatory approach, to understand what energizes your employees and what strains them. I also offer workshops, talks, and longer-term consulting, always adapted to your organization.</p>
+    <div class="section-label" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--color-text-primary);">For organizations</div>
+    <p class="work-text">I support teams and organizations in promoting healthy workplaces using evidence-based methods for job design and employee well-being. Healthy and motivated employees are the foundation of a productive and sustainable organization. I offer psychological assessments and tailored needs analyses based on a participatory approach, to understand what energizes your employees and what strains them. As part of the EU-funded project <a class="inline-link" href="https://h-work.eu/" target="_blank" rel="noopener">H-WORK</a>, I ran workshops and psychological assessments with employees.</p>
     <p class="work-text" style="margin-top:2rem;">Interested in working together? <a class="inline-link" onclick="show('contact', document.querySelector('.nav-links a:last-child'))">Get in touch</a> and we can talk about how I may support you.</p>
 
   </section>
@@ -242,20 +256,17 @@
         <p>Salutogenesis looks at the sources of health rather than the causes of illness. It focuses on people’s resources and strengths, on what helps them stay resilient under pressure, and on the positive aspects of work and life that keep them well. This perspective is the general orientation of my work.</p>
       </div>
       <div class="theme">
-        <h3>Needs-based crafting</h3>
-        <p>We are not only shaped by our work, we also actively shape it. Needs-based crafting describes how people adjust their work and free time to better meet their psychological needs for Detachment, Relaxation, Autonomy, Mastery, Meaning, and Affiliation (DRAMMA). This is one of the core topics of my research.</p>
+        <h3>Shaping your work and life</h3>
+        <p>We are not only shaped by our work, we can also shape it ourselves. Small changes to how we work, and to how we spend our free time, can help us find more energy, meaning, and balance. In my work with individuals, I draw on my own research on job crafting and recovery from work.</p>
       </div>
       <div class="theme">
-        <h3>SMART work design</h3>
-        <p>Good work is Stimulating, builds Mastery, gives Agency, is Relational, and keeps demands Tolerable. The SMART model summarizes decades of research on job design and what makes work healthy and motivating. I apply it to support organizations in promoting their employees’ well-being and performance.</p>
+        <h3>Designing healthy work</h3>
+        <p>Every job has demands that cost energy and resources that give energy back. Well-designed work keeps demands manageable and offers variety, autonomy, good relationships, and room to grow. I draw on well-established models, such as the SMART model of work design and the job demands-resources model.</p>
       </div>
     </div>
     <div class="section-label" style="margin-top:3rem;">Related publications</div>
     <div class="pub-item">
       <p class="pub-ref">Antonovsky, A. (1996). <a class="pub-title" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">The salutogenic model as a theory to guide health promotion</a>. <i>Health Promotion International, 11</i>(1), 11–18. <a class="pub-doi" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/11.1.11</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Newman, D. B., Tay, L., &amp; Diener, E. (2014). <a class="pub-title" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">Leisure and subjective well-being: A model of psychological mechanisms as mediating factors</a>. <i>Journal of Happiness Studies, 15</i>(3), 555–578. <a class="pub-doi" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">https://doi.org/10.1007/s10902-013-9435-x</a></p>
     </div>
     <div class="pub-item">
       <p class="pub-ref">de Bloom, J., Vaziri, H., Tay, L., &amp; Kujanpää, M. (2020). <a class="pub-title" href="https://doi.org/10.1037/apl0000495" target="_blank" rel="noopener">An identity-based integrative needs model of crafting: Crafting within and across life domains</a>. <i>Journal of Applied Psychology, 105</i>(12), 1423–1446. <a class="pub-doi" href="https://doi.org/10.1037/apl0000495" target="_blank" rel="noopener">https://doi.org/10.1037/apl0000495</a></p>
@@ -266,40 +277,43 @@
     <div class="pub-item">
       <p class="pub-ref">Bakker, A. B., &amp; Demerouti, E. (2017). <a class="pub-title" href="https://doi.org/10.1037/ocp0000056" target="_blank" rel="noopener">Job demands–resources theory: Taking stock and looking forward</a>. <i>Journal of Occupational Health Psychology, 22</i>(3), 273–285. <a class="pub-doi" href="https://doi.org/10.1037/ocp0000056" target="_blank" rel="noopener">https://doi.org/10.1037/ocp0000056</a></p>
     </div>
+    <div class="pub-item">
+      <p class="pub-ref">Newman, D. B., Tay, L., &amp; Diener, E. (2014). <a class="pub-title" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">Leisure and subjective well-being: A model of psychological mechanisms as mediating factors</a>. <i>Journal of Happiness Studies, 15</i>(3), 555–578. <a class="pub-doi" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">https://doi.org/10.1007/s10902-013-9435-x</a></p>
+    </div>
 
-    <div class="section-label" style="margin-top:3rem;">Own publications</div>
+    <div class="section-label" style="margin-top:3rem;">Selected own publications</div>
     <div class="pub-item">
-      <p class="pub-ref"><strong>Tušl, M.</strong>, Brauchli, R., Kerksieck, P., &amp; Bauer, G. F. (2021). <a class="pub-title" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">Impact of the COVID-19 crisis on work and private life, mental well-being and self-rated health in German and Swiss employees: A cross-sectional online survey</a>. <i>BMC Public Health, 21</i>(1), 741. <a class="pub-doi" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">https://doi.org/10.1186/s12889-021-10788-8</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Mana, A., Bauer, G. F., Meier Magistretti, C., Sardu, C., Juvinyà-Canal, D., Hardy, L. J., Catz, O., <strong>Tušl, M.</strong>, &amp; Sagy, S. (2021). <a class="pub-title" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">Order out of chaos: Sense of coherence and the mediating role of coping resources in explaining mental health during COVID-19 in 7 countries</a>. <i>SSM – Mental Health, 1</i>, 100001. <a class="pub-doi" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">https://doi.org/10.1016/j.ssmmh.2021.100001</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Pijpker, R., Kerksieck, P., <strong>Tušl, M.</strong>, de Bloom, J., Brauchli, R., &amp; Bauer, G. F. (2022). <a class="pub-title" href="https://doi.org/10.3390/ijerph19042146" target="_blank" rel="noopener">The role of off-job crafting in burnout prevention during COVID-19 crisis: A longitudinal study</a>. <i>International Journal of Environmental Research and Public Health, 19</i>(4), 2146. <a class="pub-doi" href="https://doi.org/10.3390/ijerph19042146" target="_blank" rel="noopener">https://doi.org/10.3390/ijerph19042146</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref"><strong>Tušl, M.</strong>, Bauer, G. F., Kujanpää, M., Toyama, H., Shimazu, A., &amp; de Bloom, J. (2024). <a class="pub-title" href="https://doi.org/10.1037/ocp0000372" target="_blank" rel="noopener">Needs-based job crafting: Validation of a new scale based on psychological needs</a>. <i>Journal of Occupational Health Psychology, 29</i>(2), 57–71. <a class="pub-doi" href="https://doi.org/10.1037/ocp0000372" target="_blank" rel="noopener">https://doi.org/10.1037/ocp0000372</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref"><strong>Tušl, M.</strong>, de Bloom, J., &amp; Bauer, G. F. (2022). <a class="pub-title" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">Sense of coherence, off-job crafting, and mental well-being: A path of positive health development</a>. <i>Health Promotion International, 37</i>(6), daac159. <a class="pub-doi" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/daac159</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref"><strong>Tušl, M.</strong>, Šípová, I., Máčel, M., Cetkovská, K., &amp; Bauer, G. F. (2024). <a class="pub-title" href="https://doi.org/10.1186/s40359-024-01805-7" target="_blank" rel="noopener">The sense of coherence scale: Psychometric properties in a representative sample of the Czech adult population</a>. <i>BMC Psychology, 12</i>(1), 293. <a class="pub-doi" href="https://doi.org/10.1186/s40359-024-01805-7" target="_blank" rel="noopener">https://doi.org/10.1186/s40359-024-01805-7</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Morstatt, A. I., Bauer, G. F., de Bloom, J., Roman, Z. J., <strong>Tušl, M.</strong>, &amp; Kerksieck, P. (2025). <a class="pub-title" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">Crafting for health: A longitudinal study of job and off-job crafting changes during the COVID-19 pandemic</a>. <i>Occupational Health Science, 9</i>(3), 675–710. <a class="pub-doi" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">https://doi.org/10.1007/s41542-025-00222-5</a></p>
+      <p class="pub-ref"><strong>Tušl, M.</strong>, Kujanpää, M., Kosenkranius, M., &amp; de Bloom, J. (2026). <a class="pub-title" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">Workers’ proactive pursuit of meaning: The role of needs-based crafting</a>. In <i>Work meaning and motivation: Interdisciplinary perspectives on work well-being</i> (pp. 59–80). Springer. <a class="pub-doi" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-032-23826-9_3</a></p>
     </div>
     <div class="pub-item">
       <p class="pub-ref">Axtell, C., Vasquez, C., Christensen, M., Innstrand, S. T., De Angelis, M., Mazzetti, G., Pelzer, V., van den Heuvel, M., <strong>Tušl, M.</strong>, Šípová, I., Muschalla, B., Llorens, S., &amp; Peláez Zuberbühler, J. (2025). <a class="pub-title" href="https://doi.org/10.1016/j.im.2025.104132" target="_blank" rel="noopener">Adapting mental health needs analysis activities to online and hybrid methods: Lessons learned during COVID-19</a>. <i>Information &amp; Management, 62</i>(4), 104132. <a class="pub-doi" href="https://doi.org/10.1016/j.im.2025.104132" target="_blank" rel="noopener">https://doi.org/10.1016/j.im.2025.104132</a></p>
     </div>
     <div class="pub-item">
-      <p class="pub-ref"><strong>Tušl, M.</strong>, Kujanpää, M., Kosenkranius, M., &amp; de Bloom, J. (2026). <a class="pub-title" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">Workers’ proactive pursuit of meaning: The role of needs-based crafting</a>. In <i>Work meaning and motivation: Interdisciplinary perspectives on work well-being</i> (pp. 59–80). Springer. <a class="pub-doi" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-032-23826-9_3</a></p>
+      <p class="pub-ref">Morstatt, A. I., Bauer, G. F., de Bloom, J., Roman, Z. J., <strong>Tušl, M.</strong>, &amp; Kerksieck, P. (2025). <a class="pub-title" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">Crafting for health: A longitudinal study of job and off-job crafting changes during the COVID-19 pandemic</a>. <i>Occupational Health Science, 9</i>(3), 675–710. <a class="pub-doi" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">https://doi.org/10.1007/s41542-025-00222-5</a></p>
     </div>
     <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong> (2025). <a class="pub-title" href="https://doi.org/10.1080/21642850.2025.2537699" target="_blank" rel="noopener">Exploring needs-based crafting in daily life: A registered report of a mixed-methods daily diary study</a>. <i>Health Psychology and Behavioral Medicine, 13</i>(1), 2537699. <a class="pub-doi" href="https://doi.org/10.1080/21642850.2025.2537699" target="_blank" rel="noopener">https://doi.org/10.1080/21642850.2025.2537699</a></p>
     </div>
     <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong>, Lehmann, A. I., Morstatt, A. I., Dressel, H., &amp; Bauer, G. F. (2025). <a class="pub-title" href="https://doi.org/10.1186/s12889-025-25237-z" target="_blank" rel="noopener">Longitudinal changes in occupational well-being: A four-wave panel survey of employees in Switzerland and Germany</a>. <i>BMC Public Health, 25</i>(1), 4187. <a class="pub-doi" href="https://doi.org/10.1186/s12889-025-25237-z" target="_blank" rel="noopener">https://doi.org/10.1186/s12889-025-25237-z</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref"><strong>Tušl, M.</strong>, Bauer, G. F., Kujanpää, M., Toyama, H., Shimazu, A., &amp; de Bloom, J. (2024). <a class="pub-title" href="https://doi.org/10.1037/ocp0000372" target="_blank" rel="noopener">Needs-based job crafting: Validation of a new scale based on psychological needs</a>. <i>Journal of Occupational Health Psychology, 29</i>(2), 57–71. <a class="pub-doi" href="https://doi.org/10.1037/ocp0000372" target="_blank" rel="noopener">https://doi.org/10.1037/ocp0000372</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref"><strong>Tušl, M.</strong>, Šípová, I., Máčel, M., Cetkovská, K., &amp; Bauer, G. F. (2024). <a class="pub-title" href="https://doi.org/10.1186/s40359-024-01805-7" target="_blank" rel="noopener">The sense of coherence scale: Psychometric properties in a representative sample of the Czech adult population</a>. <i>BMC Psychology, 12</i>(1), 293. <a class="pub-doi" href="https://doi.org/10.1186/s40359-024-01805-7" target="_blank" rel="noopener">https://doi.org/10.1186/s40359-024-01805-7</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">Pijpker, R., Kerksieck, P., <strong>Tušl, M.</strong>, de Bloom, J., Brauchli, R., &amp; Bauer, G. F. (2022). <a class="pub-title" href="https://doi.org/10.3390/ijerph19042146" target="_blank" rel="noopener">The role of off-job crafting in burnout prevention during COVID-19 crisis: A longitudinal study</a>. <i>International Journal of Environmental Research and Public Health, 19</i>(4), 2146. <a class="pub-doi" href="https://doi.org/10.3390/ijerph19042146" target="_blank" rel="noopener">https://doi.org/10.3390/ijerph19042146</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref"><strong>Tušl, M.</strong>, de Bloom, J., &amp; Bauer, G. F. (2022). <a class="pub-title" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">Sense of coherence, off-job crafting, and mental well-being: A path of positive health development</a>. <i>Health Promotion International, 37</i>(6), daac159. <a class="pub-doi" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/daac159</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref">Mana, A., Bauer, G. F., Meier Magistretti, C., Sardu, C., Juvinyà-Canal, D., Hardy, L. J., Catz, O., <strong>Tušl, M.</strong>, &amp; Sagy, S. (2021). <a class="pub-title" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">Order out of chaos: Sense of coherence and the mediating role of coping resources in explaining mental health during COVID-19 in 7 countries</a>. <i>SSM – Mental Health, 1</i>, 100001. <a class="pub-doi" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">https://doi.org/10.1016/j.ssmmh.2021.100001</a></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-ref"><strong>Tušl, M.</strong>, Brauchli, R., Kerksieck, P., &amp; Bauer, G. F. (2021). <a class="pub-title" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">Impact of the COVID-19 crisis on work and private life, mental well-being and self-rated health in German and Swiss employees: A cross-sectional online survey</a>. <i>BMC Public Health, 21</i>(1), 741. <a class="pub-doi" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">https://doi.org/10.1186/s12889-021-10788-8</a></p>
     </div>
     <div class="pub-more">Full list of publications on <a href="https://scholar.google.com/citations?user=Sec-rSMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</div>
   </section>
@@ -313,43 +327,37 @@
     <div class="section-label">Current position</div>
     <div class="timeline-item">
       <span class="timeline-year">Since 2023</span>
-      <div class="timeline-content"><h3>Postdoctoral researcher in Occupational Health Psychology</h3><p>University of Zurich, Switzerland</p></div>
+      <div class="timeline-content"><h3>Postdoctoral researcher in Occupational Health Psychology</h3><p><a class="inline-link" href="https://www.psychology.uzh.ch/en/areas/sob/wopsy.html" target="_blank" rel="noopener">University of Zurich</a>, Switzerland</p></div>
     </div>
 
     <div class="section-label">Education</div>
     <div class="timeline-item">
       <span class="timeline-year">2023</span>
-      <div class="timeline-content"><h3>PhD in Occupational Health Psychology</h3><p>University of Zurich, Switzerland</p></div>
+      <div class="timeline-content"><h3>PhD in Occupational Health Psychology</h3><p><a class="inline-link" href="https://www.ebpi.uzh.ch/en/research/public_global_health_department/group_center_of_salutogenesis_and_division_of_public_and_organizational_health.html" target="_blank" rel="noopener">University of Zurich</a>, Switzerland</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2017</span>
-      <div class="timeline-content"><h3>Master of Clinical and Health Psychology</h3><p>Charles University, Prague, Czech Republic</p></div>
+      <div class="timeline-content"><h3>Master of Clinical and Health Psychology</h3><p>Charles University in Prague, Czech Republic</p></div>
     </div>
     <div class="timeline-item">
       <span class="timeline-year">2014</span>
-      <div class="timeline-content"><h3>Bachelor of General Psychology</h3><p>Charles University, Prague, Czech Republic</p></div>
+      <div class="timeline-content"><h3>Bachelor of General Psychology</h3><p>Charles University in Prague, Czech Republic</p></div>
     </div>
 
     <div class="section-label">Research stays</div>
     <div class="timeline-item">
-      <span class="timeline-year">2026</span>
-      <div class="timeline-content"><h3>Curtin University, Perth, Australia</h3><p>Future of Work Institute</p></div>
+      <span class="timeline-year">2018–2026</span>
+      <div class="timeline-content"><h3>International research stays</h3><p>Curtin University (Australia), University of Neuchâtel (Switzerland), NTNU (Norway), University of Groningen (Netherlands), University of Bologna (Italy)</p></div>
+    </div>
+
+    <div class="section-label">Certificates and memberships</div>
+    <div class="timeline-item">
+      <span class="timeline-year">Since 2023</span>
+      <div class="timeline-content"><h3>Member of the Global Working Group on Salutogenesis</h3><p><a class="inline-link" href="https://stars-society.org/global-working-group/" target="_blank" rel="noopener">Society for Theory and Research on Salutogenesis (STARS)</a></p></div>
     </div>
     <div class="timeline-item">
-      <span class="timeline-year">2024</span>
-      <div class="timeline-content"><h3>University of Neuchâtel, Switzerland</h3><p>Department of Psychology</p></div>
-    </div>
-    <div class="timeline-item">
-      <span class="timeline-year">2023</span>
-      <div class="timeline-content"><h3>NTNU, Trondheim, Norway</h3><p>Department of Psychology</p></div>
-    </div>
-    <div class="timeline-item">
-      <span class="timeline-year">2021</span>
-      <div class="timeline-content"><h3>University of Groningen, Netherlands</h3><p>Faculty of Economics and Business</p></div>
-    </div>
-    <div class="timeline-item">
-      <span class="timeline-year">2018–2019</span>
-      <div class="timeline-content"><h3>University of Bologna, Italy</h3><p>Human Factors, Risk and Safety</p></div>
+      <span class="timeline-year">2017</span>
+      <div class="timeline-content"><h3>Certificate in Crisis Intervention</h3><p>Remedium, Prague, Czech Republic</p></div>
     </div>
   </section>
 
@@ -357,7 +365,7 @@
   <section id="contact">
     <div class="hero">
       <h1>Contact</h1>
-      <p>Whether you're an individual curious about working together or an organization looking for support, feel free to reach out. The first 15-minute consultation is free, a chance to get to know each other and see whether we're a good fit.</p>
+      <p>Whether you're an individual curious about working together or an organization looking for support, feel free to reach out. The first 30-minute call is free, a chance to get to know each other and see whether we're a good fit.</p>
     </div>
     <div class="contact-links">
       <a class="inline-link" href="mailto:martin.tusl.jr@gmail.com">Email</a>
