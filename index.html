@@ -63,10 +63,10 @@
     .hero .role { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
     .hero-head { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
     .hero-head .role { margin-bottom: 0; }
-    .portrait { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center 30%; flex-shrink: 0; border: 0.5px solid var(--color-border-tertiary); }
+    .portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: center 30%; flex-shrink: 0; border: 0.5px solid var(--color-border-tertiary); }
     @media (max-width: 520px) {
       .hero-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .portrait { width: 104px; height: 104px; }
+      .portrait { width: 136px; height: 136px; }
     }
     .hero p { font-size: 15px; line-height: 1.8; color: var(--color-text-secondary); }
     .hero p + p { margin-top: 1rem; }
@@ -94,6 +94,16 @@
     }
 
     .topic-list { padding-top: 1.1rem; border-top: 1px solid var(--color-text-primary); }
+    .topic-list .pill { padding: 4px 7px; }
+    .research:first-of-type { margin-top: 3rem; }
+    .research { border-top: 1px solid var(--color-text-primary); }
+    .research + .research { border-top: 0.5px solid var(--color-border-secondary); }
+    .research summary.section-label { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; margin: 0; padding: 1rem 0; font-size: 12px; color: var(--color-text-primary); }
+    .research summary::-webkit-details-marker { display: none; }
+    .research summary::after { content: "+"; font-size: 18px; font-weight: 400; letter-spacing: 0; line-height: 1; }
+    .research[open] summary::after { content: "−"; }
+    .research summary:hover { opacity: 0.7; }
+    .research[open] { padding-bottom: 1.5rem; }
 
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 1rem; }
     .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2rem; }
@@ -166,14 +176,15 @@
   <section id="about" class="visible">
     <div class="hero">
       <div class="hero-head">
-        <img class="portrait" src="portrait.jpg" alt="Portrait of Martin Tušl" width="120" height="120">
+        <img class="portrait" src="portrait.jpg" alt="Portrait of Martin Tušl" width="160" height="160">
         <div>
           <h1>Martin Tušl, PhD</h1>
           <p class="role">Psychologist and Researcher</p>
         </div>
       </div>
-      <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable, drawing on research in work and organizational psychology, including my own.</p>
-      <p><a class="inline-link" onclick="show('publications', document.querySelector('.nav-links a:nth-child(2)'))">My approach</a> is grounded in science but stays close to people. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
+      <p>Work takes up a large part of our lives and it can either support or undermine our well-being. I help individuals and organizations to identify and understand what can make their work fulfilling, healthy, and sustainable. <a class="inline-link" onclick="show('publications', document.querySelector('.nav-links a:nth-child(2)'))">My approach</a> is grounded in scientific evidence from work and organizational psychology, including my own research. I believe that good research should translate into real change, for individuals and for the organizations they work in.</p>
+      <p>I grew up in the Czech Republic and obtained my Master’s in Clinical and Health Psychology at Charles University in Prague. After my studies, I spent almost two years working in research at the University of Bologna in Italy. In 2020, I moved to Switzerland, where I completed my PhD in Occupational Health Psychology at the University of Zurich and now work as a postdoctoral researcher. My experience of living and working abroad has helped me understand how challenging it can sometimes be to live and work in a new country.</p>
+      <p>Outside of work, I like being active and spend a lot of time cycling mountain passes, rock climbing, and skiing. I also enjoy learning languages, which is why I can work in English, French, Italian, and German, as well as in Czech, my mother tongue.</p>
     </div>
 
     <div class="section-label">Who I work with</div>
@@ -185,22 +196,18 @@
       </div>
       <div class="audience-card">
         <h3>Organizations &amp; teams</h3>
-        <p>Companies looking to build healthier, more engaged workplaces through evidence-based approaches to job design and well-being.</p>
+        <p>Companies looking to build healthier, more engaged workplaces through evidence-based approaches to job design.</p>
         <a class="audience-link" onclick="show('work', document.querySelector('.nav-links a:nth-child(4)'))">How I can help <span>&rarr;</span></a>
       </div>
     </div>
 
     <div class="section-label">Topics I work with</div>
     <div class="topic-pills topic-list">
-      <span class="pill">Motivation and meaning at work</span>
-      <span class="pill">Shaping your work to fit you</span>
-      <span class="pill">Recovering well from work</span>
-      <span class="pill">Handling stress and pressure</span>
-      <span class="pill">Balancing work and life</span>
+      <span class="pill">Motivation and meaning</span>
+      <span class="pill">Stress and pressure</span>
+      <span class="pill">Work-life balance</span>
       <span class="pill">Career and life transitions</span>
-      <span class="pill">Healthy work design and leadership</span>
-      <span class="pill">Remote and hybrid work</span>
-      <span class="pill">Human-centered AI</span>
+      <span class="pill">Job design</span>
     </div>
   </section>
 
@@ -213,7 +220,7 @@
     </div>
 
     <div class="section-label">For individuals</div>
-    <p class="work-text">I offer online sessions to support people who want more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you. I work in a short-term, solution-focused way.</p>
+    <p class="work-text">I offer online sessions to support people who are looking for more motivation, fulfillment, and balance in their work, or who are going through transitions, stress, or difficult work and life situations. Together we look at what gives you energy and what drains it, and find practical steps to shape your work and life in a way that suits you. I work in a short-term, solution-focused way.</p>
 
     <div class="theme-grid" style="margin-bottom:2rem;">
       <div class="theme">
@@ -221,18 +228,18 @@
         <p>We meet online for 30 minutes to get to know each other, talk about what brings you, and see whether working together is a good fit.</p>
       </div>
       <div class="theme">
-        <h3>2. Setting your goals</h3>
-        <p>In our first session, we clarify what you would like to work on together and agree on a plan that suits you.</p>
+        <h3>2. Finding your focus</h3>
+        <p>In our first session, we explore what is on your mind and what you would like to get out of our time together. This can be a concrete goal, or simply space to talk things through.</p>
       </div>
       <div class="theme">
-        <h3>3. Working together</h3>
-        <p>In regular online sessions, we work on practical steps you can try out in your everyday work and life.</p>
+        <h3>3. Regular sessions</h3>
+        <p>In the following sessions, we talk about what is going on in your work and life and how you feel about it. Where helpful, we find practical steps you can try out in your everyday life.</p>
       </div>
     </div>
 
     <div class="price-list">
       <div class="price-row"><span class="price-name">Introductory call</span><span class="price-time">30 min</span><span class="price-cost">Free</span></div>
-      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 120</span></div>
+      <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 150</span></div>
     </div>
 
 
@@ -246,7 +253,7 @@
   <section id="publications">
     <div class="hero">
       <h1>My approach</h1>
-      <p>As a researcher, I study what makes work healthy and fulfilling, and the approaches I use with clients are grounded in that evidence. Below you can find the key concepts I work with and the research behind them.</p>
+      <p>As a researcher, I study what makes work healthy and fulfilling, and the approaches I use with clients are grounded in that evidence. Below you can find the key concepts I work with and the research behind them, including my own.</p>
     </div>
 
     <div class="section-label">Key concepts</div>
@@ -257,14 +264,15 @@
       </div>
       <div class="theme">
         <h3>Shaping your work and life</h3>
-        <p>We are not only shaped by our work, we can also shape it ourselves. Small changes to how we work, and to how we spend our free time, can help us find more energy, meaning, and balance. In my work with individuals, I draw on my own research on job crafting and recovery from work.</p>
+        <p>We are not only shaped by our work, we can also shape it ourselves. Small changes to how we work, and to how we spend our free time, can help us find more energy, meaning, and balance. In my work with individuals, I draw on my own research on job crafting and off-job crafting.</p>
       </div>
       <div class="theme">
         <h3>Designing healthy work</h3>
-        <p>Every job has demands that cost energy and resources that give energy back. Well-designed work keeps demands manageable and offers variety, autonomy, good relationships, and room to grow. I draw on well-established models, such as the SMART model of work design and the job demands-resources model.</p>
+        <p>Every job has demands that cost energy and resources that give energy back. Well-designed work keeps demands manageable and offers variety, autonomy, and room to grow. I draw on well-established models, such as the SMART model of work design and the job demands-resources model.</p>
       </div>
     </div>
-    <div class="section-label" style="margin-top:3rem;">Related publications</div>
+    <details class="research">
+      <summary class="section-label">Related publications</summary>
     <div class="pub-item">
       <p class="pub-ref">Antonovsky, A. (1996). <a class="pub-title" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">The salutogenic model as a theory to guide health promotion</a>. <i>Health Promotion International, 11</i>(1), 11–18. <a class="pub-doi" href="https://doi.org/10.1093/heapro/11.1.11" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/11.1.11</a></p>
     </div>
@@ -281,15 +289,12 @@
       <p class="pub-ref">Newman, D. B., Tay, L., &amp; Diener, E. (2014). <a class="pub-title" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">Leisure and subjective well-being: A model of psychological mechanisms as mediating factors</a>. <i>Journal of Happiness Studies, 15</i>(3), 555–578. <a class="pub-doi" href="https://doi.org/10.1007/s10902-013-9435-x" target="_blank" rel="noopener">https://doi.org/10.1007/s10902-013-9435-x</a></p>
     </div>
 
-    <div class="section-label" style="margin-top:3rem;">Selected own publications</div>
+    </details>
+
+    <details class="research">
+      <summary class="section-label">Selected own publications</summary>
     <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong>, Kujanpää, M., Kosenkranius, M., &amp; de Bloom, J. (2026). <a class="pub-title" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">Workers’ proactive pursuit of meaning: The role of needs-based crafting</a>. In <i>Work meaning and motivation: Interdisciplinary perspectives on work well-being</i> (pp. 59–80). Springer. <a class="pub-doi" href="https://doi.org/10.1007/978-3-032-23826-9_3" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-032-23826-9_3</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Axtell, C., Vasquez, C., Christensen, M., Innstrand, S. T., De Angelis, M., Mazzetti, G., Pelzer, V., van den Heuvel, M., <strong>Tušl, M.</strong>, Šípová, I., Muschalla, B., Llorens, S., &amp; Peláez Zuberbühler, J. (2025). <a class="pub-title" href="https://doi.org/10.1016/j.im.2025.104132" target="_blank" rel="noopener">Adapting mental health needs analysis activities to online and hybrid methods: Lessons learned during COVID-19</a>. <i>Information &amp; Management, 62</i>(4), 104132. <a class="pub-doi" href="https://doi.org/10.1016/j.im.2025.104132" target="_blank" rel="noopener">https://doi.org/10.1016/j.im.2025.104132</a></p>
-    </div>
-    <div class="pub-item">
-      <p class="pub-ref">Morstatt, A. I., Bauer, G. F., de Bloom, J., Roman, Z. J., <strong>Tušl, M.</strong>, &amp; Kerksieck, P. (2025). <a class="pub-title" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">Crafting for health: A longitudinal study of job and off-job crafting changes during the COVID-19 pandemic</a>. <i>Occupational Health Science, 9</i>(3), 675–710. <a class="pub-doi" href="https://doi.org/10.1007/s41542-025-00222-5" target="_blank" rel="noopener">https://doi.org/10.1007/s41542-025-00222-5</a></p>
     </div>
     <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong> (2025). <a class="pub-title" href="https://doi.org/10.1080/21642850.2025.2537699" target="_blank" rel="noopener">Exploring needs-based crafting in daily life: A registered report of a mixed-methods daily diary study</a>. <i>Health Psychology and Behavioral Medicine, 13</i>(1), 2537699. <a class="pub-doi" href="https://doi.org/10.1080/21642850.2025.2537699" target="_blank" rel="noopener">https://doi.org/10.1080/21642850.2025.2537699</a></p>
@@ -310,24 +315,21 @@
       <p class="pub-ref"><strong>Tušl, M.</strong>, de Bloom, J., &amp; Bauer, G. F. (2022). <a class="pub-title" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">Sense of coherence, off-job crafting, and mental well-being: A path of positive health development</a>. <i>Health Promotion International, 37</i>(6), daac159. <a class="pub-doi" href="https://doi.org/10.1093/heapro/daac159" target="_blank" rel="noopener">https://doi.org/10.1093/heapro/daac159</a></p>
     </div>
     <div class="pub-item">
-      <p class="pub-ref">Mana, A., Bauer, G. F., Meier Magistretti, C., Sardu, C., Juvinyà-Canal, D., Hardy, L. J., Catz, O., <strong>Tušl, M.</strong>, &amp; Sagy, S. (2021). <a class="pub-title" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">Order out of chaos: Sense of coherence and the mediating role of coping resources in explaining mental health during COVID-19 in 7 countries</a>. <i>SSM – Mental Health, 1</i>, 100001. <a class="pub-doi" href="https://doi.org/10.1016/j.ssmmh.2021.100001" target="_blank" rel="noopener">https://doi.org/10.1016/j.ssmmh.2021.100001</a></p>
-    </div>
-    <div class="pub-item">
       <p class="pub-ref"><strong>Tušl, M.</strong>, Brauchli, R., Kerksieck, P., &amp; Bauer, G. F. (2021). <a class="pub-title" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">Impact of the COVID-19 crisis on work and private life, mental well-being and self-rated health in German and Swiss employees: A cross-sectional online survey</a>. <i>BMC Public Health, 21</i>(1), 741. <a class="pub-doi" href="https://doi.org/10.1186/s12889-021-10788-8" target="_blank" rel="noopener">https://doi.org/10.1186/s12889-021-10788-8</a></p>
     </div>
     <div class="pub-more">Full list of publications on <a href="https://scholar.google.com/citations?user=Sec-rSMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</div>
+    </details>
   </section>
 
   <!-- BACKGROUND / CV -->
   <section id="cv">
     <div class="hero">
       <h1>My background</h1>
-      <p>I received my Master’s in Clinical and Health Psychology at Charles University in Prague and completed my PhD in Occupational Health Psychology at the University of Zurich, where I now work as a postdoctoral researcher. Alongside my research, I support individuals and organizations in making work healthier and more fulfilling.</p>
     </div>
     <div class="section-label">Current position</div>
     <div class="timeline-item">
       <span class="timeline-year">Since 2023</span>
-      <div class="timeline-content"><h3>Postdoctoral researcher in Occupational Health Psychology</h3><p><a class="inline-link" href="https://www.psychology.uzh.ch/en/areas/sob/wopsy.html" target="_blank" rel="noopener">University of Zurich</a>, Switzerland</p></div>
+      <div class="timeline-content"><h3>Postdoctoral researcher</h3><p><a class="inline-link" href="https://www.psychology.uzh.ch/en/areas/sob/wopsy.html" target="_blank" rel="noopener">University of Zurich</a>, Switzerland</p></div>
     </div>
 
     <div class="section-label">Education</div>
