@@ -150,7 +150,6 @@
 
     .btn { display: inline-block; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 24px; background: var(--color-text-primary); color: var(--color-background-primary); text-decoration: none; transition: opacity 0.15s; }
     .btn:hover { opacity: 0.8; }
-    .btn-wrap { margin: 2rem 0 1rem; }
     .btn { cursor: pointer; border: none; font-family: inherit; }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 480px; margin-bottom: 2.5rem; }
     .contact-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 13px; color: var(--color-text-secondary); }
@@ -252,10 +251,9 @@
     </div>
 
     <div class="price-list">
-      <div class="price-row"><span class="price-name">Introductory call</span><span class="price-time">30 min</span><span class="price-cost">Free</span></div>
+      <div class="price-row"><span class="price-name"><a class="inline-link" onclick="show('contact', document.querySelector('.nav-links a:last-child'))">Introductory call</a></span><span class="price-time">30 min</span><span class="price-cost">Free</span></div>
       <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 150</span></div>
     </div>
-    <div class="btn-wrap"><a class="btn" onclick="show('contact', document.querySelector('.nav-links a:nth-child(5)'))">Request a free introductory call</a></div>
 
 
     <div class="section-label" style="margin-top:4rem;">For organizations</div>
