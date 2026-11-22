@@ -148,6 +148,20 @@
     .price-cost { color: var(--color-text-primary); font-weight: 500; text-align: right; }
     .price-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 0.75rem; margin-bottom: 1rem; }
 
+    .btn { display: inline-block; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 24px; background: var(--color-text-primary); color: var(--color-background-primary); text-decoration: none; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.8; }
+    .btn-wrap { margin: 2rem 0 1rem; }
+    .btn { cursor: pointer; border: none; font-family: inherit; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 480px; margin-bottom: 2.5rem; }
+    .contact-form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 13px; color: var(--color-text-secondary); }
+    .contact-form .optional { color: var(--color-text-tertiary); }
+    .contact-form input, .contact-form textarea { font: inherit; font-size: 15px; color: var(--color-text-primary); background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 8px; padding: 10px 12px; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-text-primary); }
+    .contact-form textarea { resize: vertical; }
+    .contact-form .btn { align-self: flex-start; margin-top: 0.5rem; }
+    .contact-form .btn:disabled { opacity: 0.5; cursor: default; }
+    .contact-form .hp { display: none; }
+    .form-status { font-size: 14px; color: var(--color-text-secondary); min-height: 1.2em; }
     .contact-links { display: flex; gap: 1.75rem; font-size: 16px; }
     .contact-note { font-size: 13px; color: var(--color-text-tertiary); margin-top: 1rem; }
 
@@ -241,6 +255,7 @@
       <div class="price-row"><span class="price-name">Introductory call</span><span class="price-time">30 min</span><span class="price-cost">Free</span></div>
       <div class="price-row"><span class="price-name">Individual session</span><span class="price-time">50 min</span><span class="price-cost">CHF 150</span></div>
     </div>
+    <div class="btn-wrap"><a class="btn" onclick="show('contact', document.querySelector('.nav-links a:nth-child(5)'))">Request a free introductory call</a></div>
 
 
     <div class="section-label" style="margin-top:4rem;">For organizations</div>
@@ -369,18 +384,24 @@
       <h1>Contact</h1>
       <p>Whether you're an individual curious about working together or an organization looking for support, feel free to reach out. The first 30-minute call is free, a chance to get to know each other and see whether we're a good fit.</p>
     </div>
-    <div class="contact-links">
-      <a class="inline-link" href="mailto:martin.tusl.jr@gmail.com">Email</a>
-      <a class="inline-link" href="https://www.linkedin.com/in/martintusl/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    <form class="contact-form" id="contact-form">
+      <input type="hidden" name="access_key" value="897704e4-3a08-4505-baf1-c3fd6e3ab605">
+      <input type="hidden" name="subject" value="Request for a free introductory call">
+      <input type="hidden" name="from_name" value="Website contact form">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <label>Name<input type="text" name="name" required autocomplete="name"></label>
+      <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      <label><span>Message <span class="optional">(optional)</span></span><textarea name="message" rows="4" placeholder="A few words about what brings you"></textarea></label>
+      <button class="btn" type="submit">Request a free introductory call</button>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
     <p class="contact-note">Based in Zurich, Switzerland · Sessions available online</p>
   </section>
 
   <footer class="site-footer">
     <div class="profile-links">
-      <a href="mailto:martin.tusl.jr@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/martintusl/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=Sec-rSMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://scholar.google.com/citations?user=Sec-rSMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
     </div>
   </footer>
 </div>
@@ -394,6 +415,21 @@
     document.querySelector('.site-footer').style.display = id === 'contact' ? 'none' : '';
     window.scrollTo(0, 0);
   }
+
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target, status = document.getElementById('form-status'), btn = form.querySelector('button');
+    btn.disabled = true; status.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) });
+      const data = await res.json();
+      if (data.success) { form.reset(); status.textContent = 'Thank you, I’ll get back to you with a few possible times.'; }
+      else { status.textContent = 'Something went wrong. Please try again later.'; }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again later.';
+    }
+    btn.disabled = false;
+  });
 </script>
 </body>
 </html>
